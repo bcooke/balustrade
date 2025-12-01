@@ -61,11 +61,14 @@ You are starting work on a task. Follow this workflow:
 
    ```
 
-8. **Summary output** - Tell the user:
-   - Branch created: `{branch-name}`
-   - Task status updated to in-progress
-   - Context doc ready at: `vault/pm/_context/{TASK-ID}-context.md`
-   - Ready to start work!
+8. **Brief summary** (1-2 lines max):
+   - "Started {TASK-ID} on branch {branch-name}"
+
+9. **Immediately begin implementation**:
+   - Read the context doc and task acceptance criteria
+   - Start working on the first implementation step
+   - Do NOT ask "shall I proceed?" or "ready to start?" - just start working
+   - The user called `/s` because they want implementation to begin NOW
 
 ## Important Rules
 - DO NOT ask user for confirmation at each step - execute the workflow
