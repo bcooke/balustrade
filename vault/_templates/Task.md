@@ -3,11 +3,14 @@ type: task
 id: T-YYYY-NNN
 story: US-YYYY-NNN
 epic: E-YYYY-NNN
-status: todo
+status: backlog
 priority: medium
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 ---
+
+<!-- Valid statuses: backlog | in-progress | paused | completed | deferred | superseded | cancelled -->
+<!-- Always use 'completed' for finished work (not 'done') -->
 
 # Task: [Task Name]
 

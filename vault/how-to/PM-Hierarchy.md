@@ -413,10 +413,24 @@ No Epic/Story needed:
 type: epic | story | task | bug
 id: [E|US|T|B]-YYYY-NNN
 created: YYYY-MM-DD
-status: pending | in-progress | completed | cancelled
+status: backlog | in-progress | paused | completed | deferred | superseded | cancelled
 priority: high | medium | low
 ---
 ```
+
+### Status Definitions
+
+| Status | Meaning |
+|--------|---------|
+| `backlog` | Not started, waiting in queue |
+| `in-progress` | Currently being worked on |
+| `paused` | Started but on hold (will resume) |
+| `completed` | Finished successfully (**preferred term**) |
+| `deferred` | Postponed indefinitely (may never resume) |
+| `superseded` | Replaced by another task |
+| `cancelled` | Abandoned, will not be done |
+
+**Note**: Always use `completed` for finished work. Do not use `done` - this ensures consistency across all PM artifacts.
 
 ### Bug-Specific:
 
