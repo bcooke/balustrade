@@ -21,6 +21,17 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/user-prompt-submit.sh",
+            "statusMessage": "Checking task context..."
+          }
+        ]
+      }
     ]
   }
 }

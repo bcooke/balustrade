@@ -174,6 +174,8 @@ $ git commit -m "add vision"
 - `/ctx <note>` - Update context
 - `/status` - Quick status check (~500 tokens)
 - `/wrap` - End-of-session summary
+- `/groom` - Audit and sync PM state
+- `/x <request>` - Escape hatch (bypass PM hooks)
 
 ### 3. Vault (Documentation)
 
@@ -396,6 +398,76 @@ The todo app shows patterns in action:
 Delete it. Replace with YOUR product.
 
 The patterns remain valuable.
+
+---
+
+## Core + Packs Architecture
+
+Balustrade uses a **Core + Packs** model to stay simple while supporting different project types.
+
+### Core (Universal)
+
+The core includes patterns useful for **any project**:
+
+```
+.claude/
+├── commands/          # Task lifecycle (/p, /s, /c, /ctx, /commit)
+├── hooks/             # Git enforcement (pre-commit, commit-msg, etc.)
+├── agents/            # Base coordinator agent
+└── settings.json      # Hook configuration
+
+vault/
+├── _meta/             # Guidelines for using the vault
+├── _templates/        # Task, epic, context templates
+└── pm/                # Project management structure
+```
+
+**Core components**:
+- Task lifecycle commands (`/p`, `/s`, `/c`, `/ctx`)
+- Git hooks (pre-commit, commit-msg, post-commit)
+- PROJECT_STATUS.md pattern
+- Token-efficient workflows
+
+### Packs (Copy What You Need)
+
+Packs are pre-configured agents and templates for specific project types.
+
+**Available Packs**:
+
+| Pack | Use Case | What's Included |
+|------|----------|-----------------|
+| `saas/` | SaaS products | Product manager, UI/UX designer, user-tester agents + Product Vision, Personas, Pricing templates |
+| `oss/` | Open source | (Coming soon) |
+
+**How to Use Packs**:
+
+1. **Find the pack** in `.claude/agents/_packs/` or `vault/_packs/`
+2. **Copy what you need** to the main location:
+   ```bash
+   # Copy SaaS agents
+   cp .claude/agents/_packs/saas/*.md .claude/agents/
+
+   # Copy SaaS vault templates
+   cp vault/_packs/saas/*.md vault/product/
+   ```
+3. **Customize** the copied files for your project
+4. **Delete** what you don't need
+
+**Example**: Building a SaaS product?
+
+```bash
+# Copy the SaaS pack agents
+cp .claude/agents/_packs/saas/product-manager.md .claude/agents/
+cp .claude/agents/_packs/saas/ui-ux-designer.md .claude/agents/
+cp .claude/agents/_packs/saas/user-tester.md .claude/agents/
+
+# Copy the SaaS vault templates
+cp vault/_packs/saas/* vault/product/
+
+# Now edit them for YOUR product!
+```
+
+The agents reference docs adaptively - they check if files exist before trying to use them.
 
 ---
 
