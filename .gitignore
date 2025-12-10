@@ -1,5 +1,13 @@
 # Balustrade Template .gitignore
 
+# Reference materials (cloned repos, screenshots, PRDs, PDFs, external docs)
+# Use underscore prefix for any ignored directories
+_reference/
+
+# Claude Code local data
+.claude/settings.local.json
+.claude-sessions/
+
 # Environment variables
 .env
 .env.local

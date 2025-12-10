@@ -45,7 +45,11 @@ balustrade/
 │   ├── _meta/                  # Writing guidelines
 │   ├── how-to/                 # Process docs
 │   └── pm/                     # Project management (tasks, context)
-├── example-app/                # REFERENCE (delete this)
+├── _reference/                 # REFERENCE MATERIALS (gitignored)
+│   ├── repos/                  # Cloned repos for inspiration
+│   ├── screenshots/            # UI mockups, design references
+│   └── docs/                   # PDFs, PRDs, external specs
+├── example-app/                # EXAMPLE APP (delete this)
 │   ├── server.js               # Minimal Node HTTP server
 │   ├── index.html              # Vanilla JS + Tailwind CDN
 │   └── README.md               # "This is just an example"
@@ -468,6 +472,7 @@ The `.claude/` directory and `vault/` structure sit alongside your code, regardl
 - `vault/how-to/Git Workflow.md` - Commit conventions
 - `vault/how-to/PM-Hierarchy.md` - Epics, Stories, Tasks, Bugs
 - `vault/how-to/Adding Your Conventions.md` - Add your rules
+- `vault/how-to/Using Reference Materials.md` - The `_reference/` pattern
 - `vault/how-to/Multi-Language Support.md` - Any language
 - `vault/how-to/Dev Container Setup.md` - Multi-agent setup
 - `vault/how-to/Obsidian Integration.md` - Optional enhancement
